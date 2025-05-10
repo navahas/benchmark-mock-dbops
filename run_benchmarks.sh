@@ -12,5 +12,4 @@ mkdir -p docs
 echo "Copying benchmark reports to docs/report..."
 cp -r target/criterion/* docs/
 
-echo "Done. You can now push to GitHub and view the report at:"
-echo "https://<your-username>.github.io/<your-repo-name>/report/index.html"
+echo "To see in browser open docs/report/index.html"
