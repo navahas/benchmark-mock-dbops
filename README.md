@@ -1,10 +1,3 @@
-This performance difference directly reflects how each method uses stack and heap memory in Rust:
-	•	pattern match (&c) uses a string literal ("aeiou") and character copies. Literals live in read-only memory and characters are stack-allocated (char is Copy). There’s no heap allocation, so it’s fast and efficient.
-	•	replace() uses a fixed array of characters and converts it to a slice. While slightly more complex internally, it still avoids heap allocation. The function is well-optimized in the standard library, but involves more overhead than the direct iteration in pattern match.
-	•	vec + contains() explicitly allocates a Vec<char> on the heap. Every call to .contains() searches that heap-allocated vector, adding overhead. It also involves referencing and dereferencing values, which further slows things down.
-
-In summary, stack-based operations are faster due to less allocation and simpler memory access, while heap-based methods introduce latency due to dynamic memory management and indirection.
-
 # Rust Performance Benchmarks for AI Database Operations
 
 This project demonstrates how different implementation strategies in Rust can impact performance compared to approaches typically used in Python and TypeScript, particularly in the context of AI systems interacting with databases.
